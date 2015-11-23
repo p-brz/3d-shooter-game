@@ -2,6 +2,8 @@ package org.example.game.math;
 
 import static org.junit.Assert.assertEquals;
 
+import org.example.shootergame.math.Vector;
+import org.example.shootergame.math.Vectors;
 import org.junit.Test;
 
 public class VectorsTest {

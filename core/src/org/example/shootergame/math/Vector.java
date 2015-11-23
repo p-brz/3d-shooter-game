@@ -1,4 +1,4 @@
-package org.example.game.math;
+package org.example.shootergame.math;
 
 import java.util.Arrays;
 
