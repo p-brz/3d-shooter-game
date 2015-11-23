@@ -3,10 +3,12 @@ package org.example.shootergame;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import org.example.shootergame.game.CameraController;
+import org.example.shootergame.game.camera.CameraController;
+import org.example.shootergame.game.camera.MouseMarginCameraController;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
@@ -65,9 +67,13 @@ public class ShooterGame extends ApplicationAdapter {
         cam.near = 1f;
         cam.far = 300f;
         cam.update();
-        
-        cameraController = new CameraController(cam);
-        Gdx.input.setInputProcessor(cameraController);
+
+        cameraController = new MouseMarginCameraController(cam);
+//        cameraController = new MouseMoveCamController(cam);
+        InputProcessor camInput = cameraController.getInputProcessor();
+        if(camInput != null){
+        	Gdx.input.setInputProcessor(camInput);
+        }
 	}
     
     
