@@ -5,7 +5,12 @@ import com.badlogic.gdx.math.MathUtils;
 public class Vectors {
 
 
+	/** Rotaciona vetor 'v' em 'rotDegree' ângulos ao redor do eixo 'rotAxis'
+	 * */
 	public static Vector rotate(Vector v, Vector rotAxis, float rotDegree) {
+		/*Implementação utiliza fórmula de rotação de rodrigues:
+		 * https://en.wikipedia.org/wiki/Rodrigues'_rotation_formula
+		 * */
 		Vector projOverAxis = project(v, rotAxis, new Vector());
 		Vector projOrthogonal = sub(v, projOverAxis, new Vector());
 		
